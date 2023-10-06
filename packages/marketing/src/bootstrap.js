@@ -23,7 +23,7 @@ const mount = (el, { onNavigate, defaultHistory }) => {
     //  navigates to a URL
     onParentNavigate({ pathname: nextPathname }) {
       //  Get the current pathname
-      const { currentPathname } = history.location;
+      const { pathname: currentPathname } = history.location;
 
       //  Make sure the current and next pathnames are different
       //  to prevent an infinite loop
