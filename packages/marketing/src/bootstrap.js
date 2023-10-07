@@ -4,9 +4,13 @@ import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
 //  Render the application into the given element
-const mount = (el, { onNavigate, defaultHistory }) => {
+const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   //  Create a memory history
-  const history = defaultHistory || createMemoryHistory();
+  const history =
+    defaultHistory ||
+    createMemoryHistory({
+      initialEntries: [initialPath],
+    });
 
   //  Provide the onNavigate function to the history so that it
   //  is invoked whenever the history is updated
