@@ -4,7 +4,7 @@ import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
 //  Render the application into the given element
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (el, { onNavigate, onSignIn, defaultHistory, initialPath }) => {
   //  Create a memory history
   const history =
     defaultHistory ||
@@ -19,7 +19,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   }
 
   //  Render the application and pass it the memory history
-  ReactDOM.render(<App history={history} />, el);
+  ReactDOM.render(<App onSignIn={onSignIn} history={history} />, el);
 
   //  Return callbacks to the parent application
   return {
